@@ -15,12 +15,12 @@ column_vec <- column_list$label %>% as.vector()
 for(file in 1:length(file_list)){
   tmp_data <- fread(paste0(data_path,file_list[file]), header = F, sep = ",", data.table = F, encoding = "UTF-8")
 
-  header_row <- charmatch("時間",nox_samp_data[,1])
+  header_row <- charmatch("時間",tmp_data[,1])
   start_row <- header_row + 2
 
   end_row <- NULL
-  for(row in start_row:nrow(nox_samp_data)){
-    if(nox_samp_data[row,1] != ""){
+  for(row in start_row:nrow(tmp_data)){
+    if(tmp_data[row,1] != ""){
     } else {
       end_row <- row-1
       break
@@ -38,7 +38,7 @@ for(file in 1:length(file_list)){
       col_val_vec <- tmp_data[start_row:end_row,col_position] %>% sapply(as.numeric) %>% as.vector()
     }
     else{
-      col_val_vec <- rep("",data_row)
+      col_val_vec <- rep("",row_num)
     }
     tmp_df <- data.frame(tmp_df,col_val_vec)
 
