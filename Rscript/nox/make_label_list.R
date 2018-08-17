@@ -20,5 +20,3 @@ colnames(uniq_label_list)[1] <- "label"
 
 write.csv(uniq_label_list, paste0(in_path,"uniq_label_list.csv"), row.names = F, quote = F, fileEncoding = "UTF-8")
 write.csv(label_df, paste0(in_path,"file-label_list.csv"), row.names = F, quote = F)
-
-
