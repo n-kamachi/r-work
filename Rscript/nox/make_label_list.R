@@ -9,7 +9,7 @@ file_list <- list.files(data_path)
 
 label_df <- NULL
 for(i in 1:length(file_list)){
-  tmp_data <- fread(paste0(data_path,file_list[i]), header = F, sep = ",", data.table = F, encoding = "UTF-8")
+  tmp_data <- fread(paste0(data_path,file_list[i]), header = F, sep = ",", data.table = F)
   tmp_label_list <- tmp_data[3,] %>% t() %>% na.omit() %>% as.vector()
   tmp_df <- data.frame(file=file_list[i], label=tmp_label_list)
   label_df <- rbind(label_df, tmp_df)
