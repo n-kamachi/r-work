@@ -51,7 +51,7 @@ for(file in 1:length(file_list)){
   
   file_id_mst <- rbind(file_id_mst, tmp_file_mst)
   
-  write.csv(tmp_ts_df_v, paste0(out_path, "load_ts_", sprintf("%03d", file_id),"_", file_list[file]), row.names = F, quote = F, fileEncoding = "UTF-8")
+  write.csv(tmp_ts_df_v, paste0(out_path, "NOX_LOAD_TS_", sprintf("%03d", file_id),"_", substr(file_list[file],1,9), ".csv"), row.names = F, quote = F, fileEncoding = "UTF-8", na="")
   
   file_id <- file_id + 1
 }

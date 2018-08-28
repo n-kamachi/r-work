@@ -45,5 +45,5 @@ for(file in 1:length(file_list)){
     colnames(tmp_df)[label+1] <- column_vec[label]
 
   }
-  write.csv(tmp_df, paste0(out_path, "load_", file_list[file]), row.names = F, quote = F, fileEncoding = "UTF-8")
+  write.csv(tmp_df, paste0(out_path, "load_", file_list[file]), row.names = F, quote = F, fileEncoding = "UTF-8", na="")
 }
